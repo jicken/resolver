@@ -34,7 +34,7 @@ public class PluginIntegrationTestCase {
                 ENVIRONMENT);
 
         File[] files = resolver.artifact("org.sonatype.aether:aether-api").resolveAsFiles();
-        new FileValidationUtil("aether-api").validate(files);
+        new ValidationUtil("aether-api").validate(files);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class PluginIntegrationTestCase {
                 ENVIRONMENT);
 
         File[] files = resolver.importTestDependencies().resolveAsFiles(new StrictFilter());
-        new FileValidationUtil("shrinkwrap-impl-base", "junit", "commons-codec", "jetty").validate(files);
+        new ValidationUtil("shrinkwrap-impl-base", "junit", "commons-codec", "jetty").validate(files);
     }
 
 }
