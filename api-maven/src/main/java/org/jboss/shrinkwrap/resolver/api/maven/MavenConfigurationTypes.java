@@ -69,11 +69,11 @@ public class MavenConfigurationTypes {
         public EffectivePomMavenDependencyResolver configure(MavenDependencyResolver resolver) {
 
             String pomFile = SecurityActions.getProperty(POM_FILE_KEY);
-            Validate.notNullOrEmpty(pomFile, CONSTRUCTION_EXCEPTION);
+            Validate.stateNotNullOrEmpty(pomFile, CONSTRUCTION_EXCEPTION);
             Validate.isReadable(pomFile, "POM file " + pomFile + " does not represent a readable file");
 
             String userSettings = SecurityActions.getProperty(USER_SETTINGS_KEY);
-            Validate.notNullOrEmpty(userSettings, CONSTRUCTION_EXCEPTION);
+            Validate.stateNotNullOrEmpty(userSettings, CONSTRUCTION_EXCEPTION);
             Validate.isReadable(userSettings, "Settings.xml file " + userSettings + " does not represent a readable file");
             MavenDependencyResolver updated = resolver.loadSettings(userSettings);
 
